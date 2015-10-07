@@ -3,6 +3,13 @@ button {
     width: 6em;
 }
 
+center-aligned {
+    vertical-align:middle;
+    display: block;
+    left:50%;
+    position:relative;
+}
+
 #table{
     max-height: 500px;
     overflow-y: scroll;

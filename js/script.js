@@ -113,22 +113,34 @@ function update(arr){
     return auxArr;
 }
 
+function _play(){
+    var auxArr = update(arr);
+    drawGrid(auxArr);
+    arr = auxArr;
+}
+
 (function(){
     arr = initArray();
     randomGrid(arr); 
 
     $('button#update').click(function(){
-	var auxArr = update(arr);
-	drawGrid(auxArr);
-	arr= auxArr;
+	// var auxArr = update(arr);
+	// drawGrid(auxArr);
+	// arr= auxArr;
+	_play();
     });
 
     $('button#auto').click(function(){
 	setInterval(function(){
-	var auxArr = update(arr);
-	drawGrid(auxArr);
-	arr = auxArr;
+	    _play()
 	}, 1000)
+    });
+
+    $('button#change').click(function(event){
+	event.preventDefault();
+	numOfCells = $('input[name=cell]').val() || 160;
+	arr = initArray();
+	randomGrid(arr);
     });
 
     $(canvas).click(function(event){

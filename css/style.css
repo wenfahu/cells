@@ -1,0 +1,9 @@
+
+button {
+    width: 6em;
+}
+
+#table{
+    max-height: 500px;
+    overflow-y: scroll;
+}

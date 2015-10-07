@@ -134,6 +134,13 @@ function update(arr){
     $(canvas).click(function(event){
 	var pos = getMouseClickCoordinate(this, event);
 	console.log(pos.X, pos.Y);
+	$('tbody').append(
+	    '<tr>' +
+		'<td>' + pos.X + '</td>' +
+		'<td>' + pos.Y + '</td>' +
+	    '</tr>'
+	);
+
 	arr[pos.X][pos.Y] = 2;
     });
 })();

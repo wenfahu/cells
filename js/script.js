@@ -46,7 +46,7 @@ function randomGrid(arr){
 
 
 function aliveNeighbors(arr, x, y){
-    if(x > 0 && y > 0 && x < numOfCells - 1 && y < numOfCells - 1){
+    if(x >= 0 && y >= 0 && x <= numOfCells - 1 && y <= numOfCells - 1){
 	var totalAive = 0;
 	function isAlive(x, y){
 	    return arr[x] && arr[x][y] && arr[x][y] != 2;

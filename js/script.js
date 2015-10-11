@@ -1,5 +1,6 @@
 var pixelSize = 4;
 var numOfCells = 160;
+var Rate = 1000;
 
 var canvas = document.getElementById('background');
 canvas.width = pixelSize*numOfCells;
@@ -117,6 +118,7 @@ function _play(){
     var auxArr = update(arr);
     drawGrid(auxArr);
     arr = auxArr;
+    console.log(Rate);
 }
 
 (function(){
@@ -133,7 +135,7 @@ function _play(){
     $('button#auto').click(function(){
 	setInterval(function(){
 	    _play()
-	}, 1000)
+	}, Rate)
     });
 
     $('button#change').click(function(event){
@@ -141,6 +143,14 @@ function _play(){
 	numOfCells = $('input[name=cell]').val() || 160;
 	arr = initArray();
 	randomGrid(arr);
+    });
+
+    $('button#interval').click(function(event){
+	event.preventDefault();
+	Rate = $('input[name=interval]').val() || 1000;
+	setInterval(function(){
+	    _play()
+	}, Rate);
     });
 
     $(canvas).click(function(event){
